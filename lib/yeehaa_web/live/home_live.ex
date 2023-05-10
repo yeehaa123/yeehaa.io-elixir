@@ -1,43 +1,28 @@
 defmodule YeehaaWeb.HomeLive do
   use YeehaaWeb, :live_view
   import YeehaaWeb.GridComponents
-  require Integer
+  import YeehaaWeb.CellComponents
+  alias Yeehaa.Ecosystem
 
   def mount(_params, _session, socket) do
     if connected?(socket) do
-      :timer.send_interval(100, self(), :tick)
+      :timer.send_interval(300, self(), :tick)
     end
 
-    cells = populate(100)
-
-    {:ok,
-     socket
-     |> assign(:cells, cells)}
+    {:ok, assign(socket, grid: Ecosystem.populate(100))}
   end
 
   def render(assigns) do
     ~H"""
-    <.grid cells={@cells} />
+    <.grid>
+      <.cell :for={organism <- @grid} cell={organism} />
+    </.grid>
     """
   end
 
-  defp populate(max) do
-    1..max
-    |> Enum.map(fn n ->
-      %{
-        index: n,
-        active: random_bool(40),
-        direction: "up"
-      }
-    end)
-  end
-
-  defp random_bool(percentage) do
-    random_number = :rand.uniform(100)
-    random_number < percentage
-  end
-
   def handle_info(:tick, socket) do
-    {:noreply, socket}
+    {:noreply,
+     socket
+     |> assign(grid: Ecosystem.update(socket.assigns.grid))}
   end
 end
