@@ -17,33 +17,15 @@ defmodule YeehaaWeb.CellComponents do
 
   attr :cell, :any, required: true
 
-  def cell(assigns) when assigns.cell.direction === :up do
-    ~H"""
-    <.base_cell class="bg-yellow-300 rotate-6 hover:-rotate-12 hover:bg-yellow-500" />
-    """
-  end
-
-  def cell(assigns) when assigns.cell.direction === :down do
-    ~H"""
-    <.base_cell class="bg-pink-300 rotate-6 hover:-rotate-12 hover:bg-pink-500" />
-    """
-  end
-
-  def cell(assigns) when assigns.cell.direction === :left do
-    ~H"""
-    <.base_cell class="bg-orange-300 rotate-6 hover:-rotate-12 hover:bg-orange-500" />
-    """
-  end
-
-  def cell(assigns) when assigns.cell.direction === :right do
-    ~H"""
-    <.base_cell class="bg-blue-300 rotate-6 hover:-rotate-12 hover:bg-blue-500" />
-    """
-  end
-
-  def cell(assigns) do
+  def cell(assigns) when assigns.cell.status === :inactive do
     ~H"""
     <.base_cell class="bg-yellow-100 -rotate-3" />
+    """
+  end
+
+  def cell(assigns) when assigns.cell.status === :active do
+    ~H"""
+    <.base_cell class="bg-yellow-300 rotate-6 hover:-rotate-12 hover:bg-yellow-500" />
     """
   end
 end

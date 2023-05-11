@@ -1,20 +1,31 @@
 defmodule Yeehaa.Organism do
   alias Yeehaa.Organism
-  defstruct [:index, :direction]
+  defstruct [:status]
 
-  def new(index) do
+  def new() do
     %Organism{
-      index: index,
-      direction: determine_direction()
+      status: random_status()
     }
   end
 
-  def move(organism, new_index) do
-    %Organism{organism | index: new_index}
+  def deactivate(organism) do
+    %Organism{organism | status: :inactive}
   end
 
-  def determine_direction() do
-    directions = [:up, :down, :left, :right]
-    Enum.random(directions)
+  def activate(organism) do
+    %Organism{organism | status: :active}
+  end
+
+  defp random_status() do
+    if random_bool(4) do
+      :active
+    else
+      :inactive
+    end
+  end
+
+  defp random_bool(percentage) do
+    random_number = :rand.uniform(100)
+    random_number < percentage
   end
 end

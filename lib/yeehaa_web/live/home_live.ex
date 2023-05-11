@@ -6,10 +6,12 @@ defmodule YeehaaWeb.HomeLive do
 
   def mount(_params, _session, socket) do
     if connected?(socket) do
-      :timer.send_interval(300, self(), :tick)
+      :timer.send_interval(10000, self(), :tick)
     end
 
-    {:ok, assign(socket, grid: Ecosystem.populate(100))}
+    grid = Ecosystem.populate(100)
+
+    {:ok, assign(socket, grid: grid)}
   end
 
   def render(assigns) do
@@ -21,8 +23,10 @@ defmodule YeehaaWeb.HomeLive do
   end
 
   def handle_info(:tick, socket) do
+    grid = Ecosystem.update(socket.assigns.grid)
+
     {:noreply,
      socket
-     |> assign(grid: Ecosystem.update(socket.assigns.grid))}
+     |> assign(grid: grid)}
   end
 end
