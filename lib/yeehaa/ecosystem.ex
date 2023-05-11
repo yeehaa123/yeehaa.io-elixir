@@ -18,8 +18,13 @@ defmodule Yeehaa.Ecosystem do
           v.status
         end
 
-      IO.inspect(statuses)
-      organism
+      active_count = Enum.count(statuses, &(&1 === :active))
+
+      if organism.status === :active && active_count > 3 do
+        Organism.activate(organism)
+      else
+        Organism.deactivate(organism)
+      end
     end
   end
 

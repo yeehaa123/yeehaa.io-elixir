@@ -6,7 +6,7 @@ defmodule YeehaaWeb.HomeLive do
 
   def mount(_params, _session, socket) do
     if connected?(socket) do
-      :timer.send_interval(10000, self(), :tick)
+      :timer.send_interval(1000, self(), :tick)
     end
 
     grid = Ecosystem.populate(100)
