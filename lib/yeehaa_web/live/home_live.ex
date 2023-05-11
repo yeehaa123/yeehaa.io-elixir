@@ -10,7 +10,6 @@ defmodule YeehaaWeb.HomeLive do
     end
 
     grid = Ecosystem.populate(100)
-
     {:ok, assign(socket, grid: grid)}
   end
 

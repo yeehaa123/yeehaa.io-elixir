@@ -17,7 +17,7 @@ defmodule Yeehaa.Organism do
   end
 
   defp random_status() do
-    if random_bool(4) do
+    if random_bool(60) do
       :active
     else
       :inactive

@@ -20,10 +20,14 @@ defmodule Yeehaa.Ecosystem do
 
       active_count = Enum.count(statuses, &(&1 === :active))
 
-      if organism.status === :active && active_count > 3 do
+      if organism.status === :active && (active_count == 3 or active_count == 2) do
         Organism.activate(organism)
       else
-        Organism.deactivate(organism)
+        if organism.status === :inactive && active_count == 3 do
+          Organism.activate(organism)
+        else
+          Organism.deactivate(organism)
+        end
       end
     end
   end
