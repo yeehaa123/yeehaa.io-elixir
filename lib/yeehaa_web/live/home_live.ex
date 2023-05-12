@@ -5,11 +5,12 @@ defmodule YeehaaWeb.HomeLive do
   alias Yeehaa.Ecosystem
 
   def mount(_params, _session, socket) do
+    grid = Ecosystem.populate(100)
+
     if connected?(socket) do
-      :timer.send_interval(1000, self(), :tick)
+      :timer.send_interval(3000, self(), :tick)
     end
 
-    grid = Ecosystem.populate(100)
     {:ok, assign(socket, grid: grid)}
   end
 

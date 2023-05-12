@@ -1,6 +1,6 @@
 defmodule Yeehaa.Organism do
   alias Yeehaa.Organism
-  defstruct [:status]
+  defstruct status: false, active_neighbor_count: 0
 
   def new() do
     %Organism{
@@ -8,12 +8,25 @@ defmodule Yeehaa.Organism do
     }
   end
 
-  def deactivate(organism) do
-    %Organism{organism | status: :inactive}
+  def update_status(organism, active_count) do
+    %Organism{
+      organism
+      | status: determine_status(organism.status, active_count),
+        active_neighbor_count: active_count
+    }
   end
 
-  def activate(organism) do
-    %Organism{organism | status: :active}
+  defp determine_status(status, count) do
+    cond do
+      count === 3 ->
+        :active
+
+      status === :active and count === 2 ->
+        :active
+
+      true ->
+        :inactive
+    end
   end
 
   defp random_status() do

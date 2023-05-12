@@ -8,41 +8,33 @@ defmodule Yeehaa.Ecosystem do
   end
 
   def update(ecosystem) do
-    ecosystem_with_index = Enum.with_index(ecosystem)
-
-    for {organism, index} <- ecosystem_with_index do
-      neighbors = get_neighbors(ecosystem_with_index, index)
-
-      statuses =
-        for {_k, v} <- neighbors do
-          v.status
-        end
-
-      active_count = Enum.count(statuses, &(&1 === :active))
-
-      if organism.status === :active && (active_count == 3 or active_count == 2) do
-        Organism.activate(organism)
-      else
-        if organism.status === :inactive && active_count == 3 do
-          Organism.activate(organism)
-        else
-          Organism.deactivate(organism)
-        end
-      end
+    for {organism, index} <- Enum.with_index(ecosystem) do
+      neighbors = get_neighbors(ecosystem, index)
+      active_count = Enum.count(neighbors, &count_neighbor(&1))
+      Organism.update_status(organism, active_count)
     end
   end
 
-  defp get_neighbors(ecosystem_with_index, index) do
-    {left_neighbor, _} = Enum.at(ecosystem_with_index, index - 1)
-    {right_neighbor, _} = Enum.at(ecosystem_with_index, rem(index + 1, 100))
-    {top_neighbor, _} = Enum.at(ecosystem_with_index, index - 10)
-    {bottom_neighbor, _} = Enum.at(ecosystem_with_index, rem(index + 10, 100))
+  defp get_neighbors(ecosystem, index) do
+    row_start = floor(index / 10) * 10
 
-    %{
-      left: left_neighbor,
-      right: right_neighbor,
-      top: top_neighbor,
-      bottom: bottom_neighbor
+    indices = %{
+      left: index - 1 >= row_start && index - 1,
+      right: index + 1 <= row_start + 9 && index + 1,
+      top: index - 10 >= 0 && index - 10,
+      bottom: index + 10 <= 99 && index + 10
     }
+
+    for {_k, i} <- indices do
+      i && Enum.at(ecosystem, i)
+    end
+  end
+
+  defp count_neighbor(%{status: status}) when status === :active do
+    true
+  end
+
+  defp count_neighbor(neighbor) do
+    false
   end
 end
