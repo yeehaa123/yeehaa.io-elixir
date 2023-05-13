@@ -8,11 +8,19 @@ defmodule Yeehaa.Organism do
     }
   end
 
-  def update_status(organism, active_count) do
+  def add_active_count(organism, active_count) do
     %Organism{
       organism
-      | status: determine_status(organism.status, active_count),
-        active_neighbor_count: active_count
+      | active_neighbor_count: active_count
+    }
+  end
+
+  def update_status(organism) do
+    %{status: status, active_neighbor_count: count} = organism
+
+    %Organism{
+      organism
+      | status: determine_status(status, count)
     }
   end
 
@@ -30,7 +38,7 @@ defmodule Yeehaa.Organism do
   end
 
   defp random_status() do
-    if random_bool(60) do
+    if random_bool(75) do
       :active
     else
       :inactive

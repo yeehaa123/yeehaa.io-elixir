@@ -16,9 +16,17 @@ defmodule YeehaaWeb.CellComponents do
   attr(:cell, :any, required: true)
 
   def cell(assigns) when assigns.cell.status === :inactive do
-    ~H"""
-    <.base_cell cell={@cell} class="bg-yellow-100 -rotate-3" />
-    """
+    case assigns.cell.active_neighbor_count do
+      3 ->
+        ~H"""
+        <.base_cell cell={@cell} class="white -rotate-3" />
+        """
+
+      _ ->
+        ~H"""
+        <.base_cell cell={@cell} class="bg-yellow-100 -rotate-3" />
+        """
+    end
   end
 
   def cell(assigns) when assigns.cell.status === :active do
