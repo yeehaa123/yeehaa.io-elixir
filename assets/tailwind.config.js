@@ -14,10 +14,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        brand: "FD4F00",
+        sun: "#F9A505",
+        purp: "#773670",
+        curtains: "#2E0016",
+        dark: "#0F0D0D",
+        white: "#FFFFFF",
+        fire: "#E14616"
       },
       fontFamily: {
-        'raleway': ['Raleway', 'sans-serif']
+        'sans': ['Londrina Solid', 'cursive']
       },
     },
   },

@@ -1,34 +1,23 @@
 defmodule Yeehaa.Ecosystem do
   alias Yeehaa.Organism
+  alias Yeehaa.Neighbors
 
   def initialize(max) do
-    populate(max)
-    |> add_neighbor_count
+    1..max
+    |> Enum.map(&Organism.new(&1))
+    |> add_neighbors()
   end
 
   def update(ecosystem) do
     ecosystem
-    |> update_cell_status
-    |> add_neighbor_count
+    |> Enum.map(&Organism.update_status(&1))
+    |> add_neighbors
   end
 
-  defp add_neighbor_count(ecosystem) do
+  defp add_neighbors(ecosystem) do
     for {organism, index} <- Enum.with_index(ecosystem) do
       neighbors = get_neighbors(ecosystem, index)
-      active_count = Enum.count(neighbors, &(&1 && &1.status === :active))
-      Organism.add_active_count(organism, active_count)
-    end
-  end
-
-  defp populate(max) do
-    for _index <- 1..max do
-      Organism.new()
-    end
-  end
-
-  defp update_cell_status(ecosystem) do
-    for organism <- ecosystem do
-      Organism.update_status(organism)
+      Organism.add_neighbors(organism, neighbors)
     end
   end
 
@@ -44,8 +33,11 @@ defmodule Yeehaa.Ecosystem do
       bottom: index + side <= size - 1 && index + side
     }
 
-    for {_k, i} <- indices do
-      i && Enum.at(ecosystem, i)
-    end
+    data =
+      for {k, i} <- indices, into: %{} do
+        {k, i && Enum.at(ecosystem, i)}
+      end
+
+    struct(Neighbors, data)
   end
 end
