@@ -35,21 +35,12 @@ defmodule YeehaaWeb.HomeLive do
     </div>
     <div class="sticky top-0 bg-fire text-dark font-black py-32">
       <div class="max-w-4xl m-auto grid gap-y-32 text-center">
-        <h1 class="text-8xl">THIS IS YEEHAA</h1>
-        <h2 class="text-6xl">Creating the sound that brings harmony to dissonant structures</h2>
-        <h1 class="text-4xl">By doing</h1>
-        <div class="flex justify-between text-4xl">
-            <p>THIS</p>
-            <p>THIS</p>
-            <p>THIS</p>
-        </div>
+        <h1 class="text-6xl">WITHOUT ONGOING ALIGNMENT ALL CLOSED SYSTEMS FALL INTO ENTROPY</h1>
       </div>
     </div>
     <div class="sticky top-0 bg-purp text-white font-black py-32">
       <div class="max-w-4xl m-auto grid gap-y-32 text-center">
-        <h1 class="text-8xl">THIS IS YEEHAA</h1>
-        <h2 class="text-6xl">Creating the sound that brings harmony to dissonant structures</h2>
-        <h1 class="text-4xl">By doing</h1>
+        <h1 class="text-4xl">Our solutions are based on</h1>
         <div class="flex justify-between text-4xl">
             <p>THIS</p>
             <p>THIS</p>
@@ -59,15 +50,18 @@ defmodule YeehaaWeb.HomeLive do
     </div>
     <div class="sticky top-0 bg-sun text-curtains font-black py-32">
       <div class="max-w-4xl m-auto grid gap-y-32 text-center">
-        <h1 class="text-8xl">THIS IS YEEHAA</h1>
-        <h2 class="text-6xl">Creating the sound that brings harmony to dissonant structures</h2>
-        <h1 class="text-4xl">By doing</h1>
+        <h1 class="text-6xl">THE PROOF IS IN THE PUDDING</h1>
         <div class="flex justify-between text-4xl">
-            <p>THIS</p>
-            <p>THIS</p>
-            <p>THIS</p>
+            <p>Case + Testimonial</p>
+            <p>Case + Testimonial</p>
+            <p>Case + Testimonial</p>
         </div>
       </div>
+    </div>
+    <div class="sticky bg-curtains text-white font-black py-32">
+      <div class="max-w-4xl m-auto grid gap-y-32 text-center">
+        <h1 class="text-6xl">Contact Info</h1>
+    </div>
     </div>
     <.grid>
       <.cell :for={organism <- @grid} cell={organism} />
