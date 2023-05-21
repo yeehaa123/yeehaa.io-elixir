@@ -3,7 +3,7 @@ defmodule Yeehaa.Organism do
   alias Yeehaa.Neighbors
   defstruct status: false, active_neighbor_count: 0, neighbors: %Neighbors{}
 
-  def new(index \\ %Organism{}) do
+  def new(_index \\ %Organism{}) do
     %Organism{
       status: random_status()
     }

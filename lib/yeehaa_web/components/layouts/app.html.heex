@@ -4,27 +4,22 @@
       <a href="/" class="text-sun text-4xl font-black">
         YEEHAA
       </a>
-      <p class="bg-brand/5 text-brand rounded-full px-2 font-medium leading-6">
-        v<%= Application.spec(:phoenix, :vsn) %>
-      </p>
     </div>
-    <div class="flex items-center gap-12 font-semibold leading-6 text-sun font-light text-2xl">
+    <div class="hidden flex items-center gap-12 font-semibold leading-6 text-sun font-light text-2xl">
       <a href="https://twitter.com/elixirphoenix" class="hover:text-zinc-700">
         ABOUT
       </a>
       <a href="https://github.com/phoenixframework/phoenix" class="hover:text-zinc-700">
         SAMPLES
       </a>
-      <a
-        href="https://hexdocs.pm/phoenix/overview.html"
-      >
+      <a href="https://hexdocs.pm/phoenix/overview.html">
         CONNECT
       </a>
     </div>
   </div>
 </header>
 <main>
-  <div class="mx-auto">
+  <div>
     <.flash_group flash={@flash} />
     <%= @inner_content %>
   </div>

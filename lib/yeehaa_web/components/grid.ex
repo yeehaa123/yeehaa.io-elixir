@@ -5,7 +5,7 @@ defmodule YeehaaWeb.GridComponents do
 
   def grid(assigns) do
     ~H"""
-    <div class={["hidden grid grid-cols-10 gap-1", @class]}>
+    <div class={["grid grid-cols-10 gap-1", @class]}>
       <%= render_slot(@inner_block) %>
     </div>
     """

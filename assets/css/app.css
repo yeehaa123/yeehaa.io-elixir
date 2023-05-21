@@ -4,3 +4,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300;900&display=swap");
 
 /* This file is for your main application CSS */
+.pathy {
+  clip-path: inset(0px round 50% 50% 0px 0px);
+}
+.xpathy {
+  clip-path: polygon(
+    0% 48%,
+    5% 41%,
+    11% 35%,
+    19% 28%,
+    31% 20%,
+    45% 13%,
+    56% 10%,
+    71% 13%,
+    77% 16%,
+    84% 21%,
+    100% 32%,
+    100% 40%,
+    100% 49%,
+    100% 100%,
+    0% 100%
+  );
+}

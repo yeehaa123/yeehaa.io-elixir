@@ -17,7 +17,7 @@ defmodule YeehaaWeb.Router do
   scope "/", YeehaaWeb do
     pipe_through :browser
 
-    live "/", HomeLive
+    get "/", PageController, :home
   end
 
   # Other scopes may use custom stacks.

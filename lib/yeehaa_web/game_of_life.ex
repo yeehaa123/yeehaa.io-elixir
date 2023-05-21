@@ -1,20 +1,33 @@
-defmodule YeehaaWeb.HomeLive do
+defmodule YeehaaWeb.GameOfLifeLive do
   use YeehaaWeb, :live_view
+  import YeehaaWeb.GridComponents
+  import YeehaaWeb.CellComponents
   import YeehaaWeb.HomepageHelperComponents
+  alias Yeehaa.Ecosystem
+
+  def mount(_params, _session, socket) do
+    grid = Ecosystem.initialize(100)
+
+    if connected?(socket) do
+      :timer.send_interval(5000, self(), :tick)
+    end
+
+    {:ok, assign(socket, grid: grid)}
+  end
 
   def render(assigns) do
     ~H"""
-    <div>
-      <.inner_section class="md:py-12 lg:py-24 xl:py-48 text-white mx-8">
-        <.heading>Innovation does not begin</.heading>
-        <.heading>with radical, structural transformation</.heading>
-        <.heading class="mt-24">It starts with barely perceptible shifts</.heading>
+    <div class="text-white text-center font-black text-6xl">
+      <.inner_section class="py-48 text-white sm:text-4xl text-6xl">
+        <h1>Innovation does not begin</h1>
+        <h1 class="mb-24">with radical, structural transformation</h1>
+        <h1>It starts with barely perceptible shifts</h1>
       </.inner_section>
-      <.outer_section class="bg-sun text-curtains">
-        <.inner_section>
-          <.heading>THIS IS YEEHAA</.heading>
+      <.outer_section>
+        <.inner_section class="py-48">
+          <h1 class="text-8xl">THIS IS YEEHAA</h1>
           <h2 class="text-6xl">Creating the sound that brings harmony to dissonant structures</h2>
-          <p class="text-4xl">By doing</p>
+          <h1 class="text-4xl">By doing</h1>
           <div class="flex justify-between text-4xl">
             <p>THIS</p>
             <p>THIS</p>
@@ -24,14 +37,14 @@ defmodule YeehaaWeb.HomeLive do
       </.outer_section>
       <div class="bg-sun">
         <.outer_section class="bg-fire text-dark">
-          <.inner_section>
+          <.inner_section class="py-48">
             <h1 class="text-6xl">WITHOUT ONGOING ALIGNMENT ALL CLOSED SYSTEMS FALL INTO ENTROPY</h1>
           </.inner_section>
         </.outer_section>
       </div>
       <div class="bg-fire">
         <.outer_section class="bg-purp text-white">
-          <.inner_section>
+          <.inner_section class="py-48">
             <h1 class="text-6xl">Our solutions are based on</h1>
             <div class="flex justify-between text-4xl">
               <p>THIS</p>
@@ -42,8 +55,8 @@ defmodule YeehaaWeb.HomeLive do
         </.outer_section>
       </div>
       <div class="bg-purp">
-        <.outer_section class="bg-sun text-curtains">
-          <.inner_section>
+        <.outer_section>
+          <.inner_section class="py-48">
             <h1 class="text-6xl">THE PROOF IS IN THE PUDDING</h1>
             <div class="flex justify-between text-4xl">
               <p>Case + Testimonial</p>
@@ -57,10 +70,21 @@ defmodule YeehaaWeb.HomeLive do
         <.outer_section class="bg-curtains text-white">
           <.inner_section>
             <h1 class="text-6xl">Contact Info</h1>
+            <.grid class="hidden">
+              <.cell :for={organism <- @grid} cell={organism} />
+            </.grid>
           </.inner_section>
         </.outer_section>
       </div>
     </div>
     """
+  end
+
+  def handle_info(:tick, socket) do
+    grid = Ecosystem.update(socket.assigns.grid)
+
+    {:noreply,
+     socket
+     |> assign(grid: grid)}
   end
 end

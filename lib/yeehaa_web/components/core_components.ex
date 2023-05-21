@@ -395,16 +395,22 @@ defmodule YeehaaWeb.CoreComponents do
 
   def header(assigns) do
     ~H"""
-    <header class={[@actions != [] && "flex items-center justify-between gap-6", @class]}>
+    <header class={[
+      "py-2 px-4 md:py-4 md:px-8 lg:py-8 lg:px-8",
+      @actions != [] && "flex items-center justify-between gap-6",
+      @class
+    ]}>
       <div>
-        <h1 class="text-lg font-semibold leading-8 text-zinc-800">
+        <h1 class="text-sun text-2xl md:text-4xl leading-8 font-black">
           <%= render_slot(@inner_block) %>
         </h1>
         <p :if={@subtitle != []} class="mt-2 text-sm leading-6 text-zinc-600">
           <%= render_slot(@subtitle) %>
         </p>
       </div>
-      <div class="flex-none"><%= render_slot(@actions) %></div>
+      <div class="flex justify-between gap-2 md:gap-4 lg:gap-12 text-sun hover:[&>*]:text-purp font-light text-1xl md:text-2xl">
+        <%= render_slot(@actions) %>
+      </div>
     </header>
     """
   end
