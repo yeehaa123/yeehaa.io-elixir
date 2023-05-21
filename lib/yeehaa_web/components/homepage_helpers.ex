@@ -12,12 +12,43 @@ defmodule YeehaaWeb.HomepageHelperComponents do
     """
   end
 
+  attr(:id, :string, default: nil)
+  slot :inner_block
+
+  def hero(assigns) do
+    ~H"""
+    <div id={@id}>
+      <.heading>
+        <.inner_section class="py-24 sm:py-36 lg:py-36 xl:py-48 max-w-4xl 2xl:max-w-6xl text-white">
+          <%= render_slot(@inner_block) %>
+        </.inner_section>
+      </.heading>
+    </div>
+    """
+  end
+
+  attr(:id, :string, default: nil)
+  slot :inner_block
+
+  def footer(assigns) do
+    ~H"""
+    <div id={@id}>
+      <.outer_section class="bg-curtains text-white">
+        <.inner_section>
+          <%= render_slot(@inner_block) %>
+        </.inner_section>
+      </.outer_section>
+    </div>
+    """
+  end
+
   attr(:shape, :integer, default: 1)
+  attr(:id, :string, default: nil)
   slot :inner_block
 
   def blob(assigns) when assigns.shape === 1 do
     ~H"""
-    <div>
+    <div id={@id}>
       <svg viewBox="0 0 1728 440" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g clip-path="url(#clip0_130_65)">
           <path
@@ -45,7 +76,7 @@ defmodule YeehaaWeb.HomepageHelperComponents do
 
   def blob(assigns) when assigns.shape === 2 do
     ~H"""
-    <div class="w-full">
+    <div id={@id}>
       <.outer_section class="bg-fire text-dark">
         <.inner_section class="max-w-2xl lg:max-w-4xl">
           <%= render_slot(@inner_block) %>
@@ -56,6 +87,46 @@ defmodule YeehaaWeb.HomepageHelperComponents do
           <path
             class="fill-fire"
             d="M1728 0V257.9C1519.41 123.054 1209.32 37.5737 863.078 37.5737C516.84 37.5737 206.595 123.098 -2 258V0H1728Z"
+          />
+        </g>
+      </svg>
+    </div>
+    """
+  end
+
+  def blob(assigns) when assigns.shape === 3 do
+    ~H"""
+    <div id={@id}>
+      <.outer_section class="bg-purp text-white">
+        <.inner_section>
+          <%= render_slot(@inner_block) %>
+        </.inner_section>
+      </.outer_section>
+      <svg class="bg-purp" viewBox="0 0 1728 526" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_130_100)">
+          <path
+            d="M0.84307 526V418.607C0.84307 415.31 -1.16112 411.215 0.999159 408.755C145.463 243.925 172.5 106.144 313.297 106.144C431.75 106.144 457.123 269.231 567.79 269.231C678.458 269.231 698.67 0 862.289 0C1064.13 0 1046.51 272.128 1158.34 272.128C1270.18 272.128 1294.78 106.144 1414.4 106.144C1563 106.144 1580.46 220.455 1726.85 418.607C1729.5 422.191 1726.76 427.505 1726.57 431.919V526H0.84307Z"
+            fill="#F9A505"
+          />
+        </g>
+      </svg>
+    </div>
+    """
+  end
+
+  def blob(assigns) when assigns.shape === 4 do
+    ~H"""
+    <div id={@id}>
+      <.outer_section class="bg-sun text-curtains">
+        <.inner_section>
+          <%= render_slot(@inner_block) %>
+        </.inner_section>
+      </.outer_section>
+      <svg class="bg-sun" viewBox="0 0 1728 1001" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_130_106)">
+          <path
+            d="M1747 0V1001H-19V0H-15.422C25.003 383.225 403.3 683.565 864 683.565C1324.7 683.565 1703 383.225 1743.42 0H1747Z"
+            fill="#2B0B19"
           />
         </g>
       </svg>

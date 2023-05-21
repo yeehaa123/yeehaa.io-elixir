@@ -9,12 +9,10 @@
   </.header>
   <.flash_group flash={@flash} />
   <div class="container min-w-full max-w-full">
-    <.inner_section class="py-24 sm:py-36 lg:py-36 xl:py-48 max-w-4xl 2xl:max-w-6xl text-white">
-      <.heading>
-        Innovation does not begin with radical, structural transformation, it starts with barely perceptible shifts
-      </.heading>
-    </.inner_section>
-    <.blob>
+    <.hero id="hero">
+      Innovation does not begin with radical, structural transformation, it starts with barely perceptible shifts
+    </.hero>
+    <.blob id="proposition">
       <.heading class="max-w-4xl 2xl:max-w-6xl m-auto mb-32">
         YEEHAA is an Ecosystem Architect, creating high trust networks through a variety
         of approaches, including
@@ -22,81 +20,53 @@
       <div class="flex gap-y-12 gap-x-8 justify-between flex-col md:flex-row max-w-2xl m-auto mb-16">
         <div>
           <h1 class="text-4xl md:text-5xl mb-4 md:mb-8">Organic Governance</h1>
-          <p class="font-light text-1xl">
+          <p class="font-light sm:text-2xl">
             dynamic set of rules of conduct that aim to prevent cacaphony while preventing homogeny
           </p>
         </div>
         <div>
           <h1 class="text-4xl md:text-5xl mb-4 md:mb-8">Rhythmic Operations</h1>
-          <p class="font-light">
+          <p class="font-light sm:text-2xl">
             unexpected, small, local, and timely interventions that create, sustain, or
             transform practices of innovation
           </p>
         </div>
         <div>
           <h1 class="text-4xl md:text-5xl mb-4 md:mb-8">Value Driven Development</h1>
-          <p class="font-light">
+          <p class="font-light sm:text-2xl">
             tools and techniques to make the ethics of a practice measurable, reproducable, and communicable
           </p>
         </div>
       </div>
     </.blob>
-    <.blob shape={2}>
+    <.blob shape={2} id="problem">
       <blockquote class="text-4xl my-16">
         In order to make the internet more safe, we have to invest in building networks of trust.
         In order to achieve this, technology alone can never be the answer.
       </blockquote>
     </.blob>
-    <div id="solutions">
-      <.outer_section class="bg-purp text-white">
-        <.inner_section>
-          <.heading class="max-w-4xl m-auto py-16">
-            YEEHAA bases its solutions to this problem on a variety of principles
-          </.heading>
-          <div class="flex justify-between text-4xl">
-            <p>THIS</p>
-            <p>THIS</p>
-            <p>THIS</p>
-          </div>
-        </.inner_section>
-      </.outer_section>
-      <svg class="bg-purp" viewBox="0 0 1728 526" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g clip-path="url(#clip0_130_100)">
-          <path
-            d="M0.84307 526V418.607C0.84307 415.31 -1.16112 411.215 0.999159 408.755C145.463 243.925 172.5 106.144 313.297 106.144C431.75 106.144 457.123 269.231 567.79 269.231C678.458 269.231 698.67 0 862.289 0C1064.13 0 1046.51 272.128 1158.34 272.128C1270.18 272.128 1294.78 106.144 1414.4 106.144C1563 106.144 1580.46 220.455 1726.85 418.607C1729.5 422.191 1726.76 427.505 1726.57 431.919V526H0.84307Z"
-            fill="#F9A505"
-          />
-        </g>
-      </svg>
-    </div>
-    <div class="relative bg-opacity-0">
-      <.outer_section class="bg-sun text-curtains">
-        <.inner_section>
-          <.heading class="max-w-4xl m-auto py-16">
-            Here are some examples of our principles in action
-          </.heading>
-          <div>
-            <p>Case + Testimonial</p>
-            <p>Case + Testimonial</p>
-            <p>Case + Testimonial</p>
-          </div>
-        </.inner_section>
-      </.outer_section>
-      <svg class="bg-sun" viewBox="0 0 1728 1001" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g clip-path="url(#clip0_130_106)">
-          <path
-            d="M1747 0V1001H-19V0H-15.422C25.003 383.225 403.3 683.565 864 683.565C1324.7 683.565 1703 383.225 1743.42 0H1747Z"
-            fill="#2B0B19"
-          />
-        </g>
-      </svg>
-    </div>
-    <div class="relative bg-opacity-0">
-      <.outer_section class="bg-curtains text-white">
-        <.inner_section>
-          <h1 class="text-6xl">Contact Info</h1>
-        </.inner_section>
-      </.outer_section>
-    </div>
+    <.blob shape={3} id="solutions">
+      <.heading class="max-w-4xl m-auto py-16">
+        YEEHAA bases its solutions to this problem on a variety of principles
+      </.heading>
+      <div class="flex justify-between text-4xl">
+        <p>THIS</p>
+        <p>THIS</p>
+        <p>THIS</p>
+      </div>
+    </.blob>
+    <.blob shape={4} id="solutions">
+      <.heading class="max-w-4xl m-auto py-16">
+        Here are some examples of our principles in action
+      </.heading>
+      <div>
+        <p>Case + Testimonial</p>
+        <p>Case + Testimonial</p>
+        <p>Case + Testimonial</p>
+      </div>
+    </.blob>
+    <.footer id="footer">
+      <h1 class="text-6xl">Contact Info</h1>
+    </.footer>
   </div>
 </main>
