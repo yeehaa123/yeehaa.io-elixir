@@ -1,10 +1,10 @@
 <main>
   <.header>
-    YEEHAA
+    <.logo class="w-16 md:w-24 lg:w-32 xl:w-48" />
     <:actions>
-      <a href="https://twitter.com/elixirphoenix">ABOUT</a>
-      <a href="https://twitter.com/elixirphoenix">SAMPLES</a>
-      <a href="https://twitter.com/elixirphoenix">CONNECT</a>
+      <.navlink href="https://twitter.com/elixirphoenix">ABOUT</.navlink>
+      <.navlink href="https://twitter.com/elixirphoenix">SAMPLES</.navlink>
+      <.navlink href="https://twitter.com/elixirphoenix">CONNECT</.navlink>
     </:actions>
   </.header>
   <.flash_group flash={@flash} />
@@ -13,30 +13,21 @@
       Innovation does not begin with radical, structural transformation, it starts with barely perceptible shifts
     </.hero>
     <.blob id="proposition">
-      <.heading class="max-w-4xl 2xl:max-w-6xl m-auto mb-32">
+      <.heading class="max-w-4xl 2xl:max-w-6xl m-auto mb-24">
         YEEHAA is an Ecosystem Architect, creating high trust networks through a variety
         of approaches, including
       </.heading>
-      <div class="flex gap-y-12 gap-x-8 justify-between flex-col md:flex-row max-w-2xl m-auto mb-16">
-        <div>
-          <h1 class="text-4xl md:text-5xl mb-4 md:mb-8">Organic Governance</h1>
-          <p class="font-light sm:text-2xl">
-            dynamic set of rules of conduct that aim to prevent cacaphony while preventing homogeny
-          </p>
-        </div>
-        <div>
-          <h1 class="text-4xl md:text-5xl mb-4 md:mb-8">Rhythmic Operations</h1>
-          <p class="font-light sm:text-2xl">
-            unexpected, small, local, and timely interventions that create, sustain, or
-            transform practices of innovation
-          </p>
-        </div>
-        <div>
-          <h1 class="text-4xl md:text-5xl mb-4 md:mb-8">Value Driven Development</h1>
-          <p class="font-light sm:text-2xl">
-            tools and techniques to make the ethics of a practice measurable, reproducable, and communicable
-          </p>
-        </div>
+      <div class="flex gap-y-12 gap-x-8 lg:gap-x-32 justify-between flex-col md:flex-row max-w-5xl m-auto mb-16">
+        <.feature name="Organic Governance">
+          dynamic set of rules of conduct that aim to prevent cacaphony while preventing homogeny
+        </.feature>
+        <.feature name="Rhythmic Operations">
+          unexpected, small, local, and timely interventions that create, sustain, or
+          transform practices of innovation
+        </.feature>
+        <.feature name="Value Driven Development">
+          tools and techniques to make the ethics of a practice measurable, reproducable, and communicable
+        </.feature>
       </div>
     </.blob>
     <.blob shape={2} id="problem">
@@ -65,8 +56,6 @@
         <p>Case + Testimonial</p>
       </div>
     </.blob>
-    <.footer id="footer">
-      <h1 class="text-6xl">Contact Info</h1>
-    </.footer>
+    <.footer id="footer" />
   </div>
 </main>
