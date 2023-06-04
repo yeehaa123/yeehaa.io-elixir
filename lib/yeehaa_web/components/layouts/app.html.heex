@@ -1,26 +1,12 @@
-<header class="px-4 sm:px-6 lg:px-12">
-  <div class="flex items-center justify-between h-28 text-sm">
-    <div class="flex items-center gap-4">
-      <a href="/" class="text-sun text-4xl font-black">
-        YEEHAA
-      </a>
-    </div>
-    <div class="hidden flex items-center gap-12 font-semibold leading-6 text-sun font-light text-2xl">
-      <a href="https://twitter.com/elixirphoenix" class="hover:text-zinc-700">
-        ABOUT
-      </a>
-      <a href="https://github.com/phoenixframework/phoenix" class="hover:text-zinc-700">
-        SAMPLES
-      </a>
-      <a href="https://hexdocs.pm/phoenix/overview.html">
-        CONNECT
-      </a>
-    </div>
-  </div>
-</header>
-<main>
-  <div>
-    <.flash_group flash={@flash} />
-    <%= @inner_content %>
-  </div>
+<.header>
+  <.logo class="w-16 md:w-24 lg:w-32 xl:w-48" />
+  <:actions>
+    <.navlink href="/about">ABOUT</.navlink>
+    <.navlink href="/samples">SAMPLES</.navlink>
+    <.navlink href="/connect">CONNECT</.navlink>
+  </:actions>
+</.header>
+<.flash_group flash={@flash} />
+<main class="container min-w-full max-w-full overflow-hidden">
+  <%= @inner_content %>
 </main>

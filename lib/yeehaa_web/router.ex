@@ -18,6 +18,9 @@ defmodule YeehaaWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    get "/about", PageController, :about
+    get "/samples", PageController, :about
+    get "/connect", PageController, :about
   end
 
   # Other scopes may use custom stacks.

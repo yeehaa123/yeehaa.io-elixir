@@ -4,6 +4,7 @@ defmodule YeehaaWeb.BlobComponents do
 
   attr(:shape, :integer, default: 1)
   attr(:id, :string, default: nil)
+  attr(:class, :string, default: nil)
   attr(:bg_color, :string, default: "sun")
   slot :inner_block
 
@@ -19,7 +20,7 @@ defmodule YeehaaWeb.BlobComponents do
         </g>
       </svg>
       <.outer_section class="bg-sun text-curtains">
-        <.inner_section class="max-w-4xl">
+        <.inner_section class={@class}>
           <%= render_slot(@inner_block) %>
         </.inner_section>
       </.outer_section>
@@ -39,7 +40,7 @@ defmodule YeehaaWeb.BlobComponents do
     ~H"""
     <div id={@id}>
       <.outer_section class="bg-fire text-dark">
-        <.inner_section class="max-w-2xl lg:max-w-4xl">
+        <.inner_section class={@class}>
           <%= render_slot(@inner_block) %>
         </.inner_section>
       </.outer_section>
@@ -59,7 +60,7 @@ defmodule YeehaaWeb.BlobComponents do
     ~H"""
     <div id={@id}>
       <.outer_section class="bg-purp text-white">
-        <.inner_section>
+        <.inner_section class={@class}>
           <%= render_slot(@inner_block) %>
         </.inner_section>
       </.outer_section>

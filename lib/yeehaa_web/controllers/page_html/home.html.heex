@@ -1,61 +1,57 @@
-<main>
-  <.header>
-    <.logo class="w-16 md:w-24 lg:w-32 xl:w-48" />
-    <:actions>
-      <.navlink href="https://twitter.com/elixirphoenix">ABOUT</.navlink>
-      <.navlink href="https://twitter.com/elixirphoenix">SAMPLES</.navlink>
-      <.navlink href="https://twitter.com/elixirphoenix">CONNECT</.navlink>
-    </:actions>
-  </.header>
-  <.flash_group flash={@flash} />
-  <div class="container min-w-full max-w-full">
-    <.hero id="hero">
-      Innovation does not begin with radical, structural transformation, it starts with barely perceptible shifts
-    </.hero>
-    <.blob id="proposition">
-      <.heading class="max-w-4xl 2xl:max-w-6xl m-auto mb-24">
-        YEEHAA is an Ecosystem Architect, creating high trust networks through a variety
-        of approaches, including
-      </.heading>
-      <div class="flex gap-y-12 gap-x-8 lg:gap-x-32 justify-between flex-col md:flex-row max-w-5xl m-auto mb-16">
-        <.feature name="Organic Governance">
-          dynamic set of rules of conduct that aim to prevent cacaphony while preventing homogeny
-        </.feature>
-        <.feature name="Rhythmic Operations">
-          unexpected, small, local, and timely interventions that create, sustain, or
-          transform practices of innovation
-        </.feature>
-        <.feature name="Value Driven Development">
-          tools and techniques to make the ethics of a practice measurable, reproducable, and communicable
-        </.feature>
-      </div>
-    </.blob>
-    <.blob shape={2} id="problem">
-      <blockquote class="text-4xl my-16">
-        In order to make the internet more safe, we have to invest in building networks of trust.
-        In order to achieve this, technology alone can never be the answer.
-      </blockquote>
-    </.blob>
-    <.blob shape={3} id="solutions">
-      <.heading class="max-w-4xl m-auto py-16">
-        YEEHAA bases its solutions to this problem on a variety of principles
-      </.heading>
-      <div class="flex justify-between text-4xl">
-        <p>THIS</p>
-        <p>THIS</p>
-        <p>THIS</p>
-      </div>
-    </.blob>
-    <.blob shape={4} id="solutions">
-      <.heading class="max-w-4xl m-auto py-16">
-        Here are some examples of our principles in action
-      </.heading>
-      <div>
-        <p>Case + Testimonial</p>
-        <p>Case + Testimonial</p>
-        <p>Case + Testimonial</p>
-      </div>
-    </.blob>
-    <.footer id="footer" />
-  </div>
-</main>
+<.hero id="hero">
+  Innovation does not begin with radical, structural transformation, it
+  starts with barely perceptible shifts
+</.hero>
+<.blob id="proposition" class="max-w-4xl">
+  <.heading class="max-w-4xl 2xl:max-w-6xl m-auto mb-32">
+    YEEHAA is an Ecosystem Architect, creating high trust networks through a variety
+    of approaches, including
+  </.heading>
+  <.feature_set>
+    <.feature name="Organic Governance">
+      dynamic set of rules of conduct that aim to prevent cacaphony while preventing homogeny
+    </.feature>
+    <.feature name="Rhythmic Operations">
+      unexpected, small, local, and timely interventions that create, sustain, or
+      transform practices of innovation
+    </.feature>
+    <.feature name="Value Driven Development">
+      tools and techniques to make the ethics of a practice measurable, reproducable, and communicable
+    </.feature>
+  </.feature_set>
+</.blob>
+<.blob shape={2} id="problem" class="max-w-2xl lg:max-w-4xl">
+  <blockquote class="text-4xl my-16">
+    In order to make the internet more safe, we have to invest in building networks of trust.
+    In order to achieve this, technology alone can never be the answer.
+  </blockquote>
+</.blob>
+<.blob shape={3} id="solutions" class="max-w-8xl">
+  <.heading class="max-w-4xl m-auto py-16 mb-32">
+    YEEHAA bases its solutions to this problem on a variety of principles
+  </.heading>
+  <section class="flex gap-y-12 gap-x-8 lg:gap-x-32 justify-between flex-col 
+      md:flex-row mb-16">
+    <.heading>Prevent Stagnation</.heading>
+    <.heading>Maximize Diversity</.heading>
+    <.heading>Enhance Trust</.heading>
+  </section>
+</.blob>
+<.blob shape={4} id="solutions">
+  <.heading class="max-w-4xl m-auto py-16">
+    Here are some examples of our principles in action
+  </.heading>
+  <section class="flex gap-y-12 lg:gap-x-32 justify-between flex-col 
+      md:flex-row mb-16">
+    <.card name="Intermin">
+      “Yeehaa provided us with a vision and helped us develop a concept that is now taking the world by storm”
+    </.card>
+    <.card name="Superconnectors">
+      “Yeehaa provided us with a vision and helped us develop a concept that is now taking the world by storm”
+    </.card>
+    <.card name="Rizom">
+      “Yeehaa provided us with a vision and helped us develop a concept that is now taking the world by storm”
+    </.card>
+  </section>
+</.blob>
+<.footer id="footer" />
